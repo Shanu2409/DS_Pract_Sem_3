@@ -1,0 +1,32 @@
+1.Practicals on array /27-6-22
+Q1- write a porgram to store the elements in a one dimensional array and perform the operations like searchin,sorting, and reversing the elements.
+Q2-read the two arrays from the user and merge them and diplay the elements in sorted order.
+Q3- write a program to perform matrix addition,multiplication and transpose operations.
+
+2.Implement the following for LL/ 11-7-22
+
+Q1. write a prgm to create simple LL and display the elements in reverse order
+Q2. write a prgm to serach elements in LL and display the same
+Q3. WAP tp create a double LL and sort the element in the LL
+
+3.Implement the followinf of stack/18-7-22
+
+Q1.WAP the concept of stack with the Push pop and dipslay and exit opertaion
+Q2.WAP to convert infix expression to post and prefix conversion
+
+4. Implement the following for queue/22-8-22
+Q1. WAP to implement the concept of queue with the insert,delete,display  and exit operation
+Q2. WAP to implement the concept of circular Queue
+Q3. WAP to implement the concept of DEQueue
+
+5. Implement the following sorting techniques /29-8-22
+Q1. WAP to implement the concept of bubble sort
+Q2. WAP to implement the selection sort
+Q3. WAP to implement the insertion sort
+Q4. WAP to implement the merge sort
+
+6.Implement the following searching techniques/12-9-22 
+Q1.WAP to search using sequential search
+Q2.WAP to search using binary search
+
+7. Implement tree datastructure and insert the elements and perform the operations like pre,post,in order traversal/19-9-22
