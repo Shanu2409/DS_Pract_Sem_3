@@ -17,8 +17,7 @@ public:
 void insert(Node *&head)
 {
     int d;
-
-    cout << "Enter data in Node : ";
+    cout << "Enter data in node : ";
     cin >> d;
 
     Node *temp = new Node(d);
@@ -29,57 +28,43 @@ void insert(Node *&head)
 void print(Node *&head)
 {
 
-    if (head == NULL)
-    {
-        cout << "List is empty " << endl;
+    if (head->next == NULL)
         return;
-    }
-    Node *temp = head;
 
-    while (temp->next != NULL)
-    {
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
-    cout << endl;
+    cout << head->data << " ";
+    print(head->next);
 }
 
 void deleteNode(int position, Node *&head)
 {
-
     if (position == 1)
     {
-        Node *temp = head;
         head = head->next;
-        temp->next = NULL;
-        delete temp;
     }
     else
     {
-        Node *curr = head;
-        Node *prev = NULL;
-
         int cnt = 1;
+        Node *cur = head;
+        Node *pri = NULL;
+
         while (cnt < position)
         {
-            prev = curr;
-            curr = curr->next;
+            pri = cur;
+            cur = cur->next;
             cnt++;
         }
 
-        prev->next = curr->next;
-        curr->next = NULL;
-        delete curr;
+        pri->next = cur->next;
+        delete cur;
     }
 }
 
 void reverseOrderPrint(Node *head)
 {
-    if (head == NULL)
+    if (head->next == NULL)
         return;
 
     reverseOrderPrint(head->next);
-
     cout << head->data << " ";
 }
 
@@ -97,6 +82,9 @@ int main()
     cout << "Printing in normal order : ";
     print(head);
     cout << endl;
+
+    // deleteNode(4, head);
+    // print(head);
 
     cout << "Printing in reverse order : ";
     reverseOrderPrint(head);
