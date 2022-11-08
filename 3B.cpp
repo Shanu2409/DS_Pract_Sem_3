@@ -42,10 +42,12 @@ string postFix(string str)
             s.pop();
         }
 
-        else if (ch == '+' || ch == '-' || ch == '/' || ch == '*')
+        else if (ch == '+' || ch == '-' || ch == '/' || ch == '*' || ch == '^')
         {
-            if (!s.empty() && prec(s.top() > prec(ch)) && !s.top() == '(')
+            if (!s.empty() && prec(s.top()) > prec(ch) && !s.top() == '(')
             {
+                if (ch == '^' && s.top() == '^')
+                    break;
                 ans = ans + s.top();
                 s.pop();
             }
@@ -58,7 +60,7 @@ string postFix(string str)
         }
     }
 
-    if (!s.empty())
+    while (!s.empty())
     {
         ans = ans + s.top();
         s.pop();
@@ -88,13 +90,13 @@ string preFix(string str)
 
 int main()
 {
-    cout << "Infix = ((A + B) - C * (D / E)) + F" << endl;
+    // cout << "Infix = ((A + B) - C * (D / E)) + F" << endl;
 
     cout << "PostFix = ";
-    cout << postFix("((A + B) - C * (D / E)) + F") << endl;
+    cout << postFix("a^b") << endl;
 
-    cout << "Prefix = ";
-    cout << preFix("((A + B) - C * (D / E)) + F") << endl;
+    // cout << "Prefix = ";
+    // cout << preFix("((A + B) - C * (D / E)) + F") << endl;
 
     return 0;
 }

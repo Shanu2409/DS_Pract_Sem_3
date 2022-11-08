@@ -42,36 +42,38 @@ void insert(Node *&head)
     head->next = temp;
 }
 
-void bubbleSort(Node *start)
+void bubbleSort(Node *&head)
 {
     int swapped, i;
-    Node *ptr1;
+    Node *temp;
     Node *lptr = NULL;
 
-    if (start == NULL)
-        return;
+    // if (head == NULL)
+    //     return;
 
     do
     {
+        temp = head;
         swapped = 0;
-        ptr1 = start;
 
-        while (ptr1->next != lptr)
+        while (temp->next != lptr)
         {
-            if (ptr1->data > ptr1->next->data)
+            if (temp->data > temp->next->data)
             {
-                swap(ptr1->data, ptr1->next->data);
+                swap(temp->data, temp->next->data);
                 swapped = 1;
             }
-            ptr1 = ptr1->next;
+            temp = temp->next;
         }
-        lptr = ptr1;
+
+        lptr = temp;
     } while (swapped);
 }
 
 int main()
 {
     Node *head = new Node(0);
+    insert(head);
     insert(head);
     insert(head);
     print(head);

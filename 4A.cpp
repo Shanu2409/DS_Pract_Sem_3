@@ -1,53 +1,46 @@
 #include <iostream>
 using namespace std;
 
-class Queue
+class q
 {
 public:
-    int *arr;
     int size;
-    int front;
-    int rear;
+    int front, rear;
+    int *arr;
 
-    Queue(int n)
+    q(int d)
     {
-        this->size = n;
+        this->size = d;
         arr = new int[size];
         front = rear = -1;
     }
 
-    void enqueue(int n)
+    void enqueue(int d)
     {
-        if ((front == 0 && rear == size - 1) || (rear == front - 1))
-            cout << "overflow";
-
-        else if (front == -1)
+        if (rear == size - 1)
+        {
+            cout << "Overflow" << endl;
+            return;
+        }
+        else if (rear == -1)
             front = rear = 0;
-
-        else if (rear == size - 1 && front != 0)
-            rear = 0;
-
         else
             rear++;
-
-        arr[rear] = n;
+        arr[rear] = d;
     }
 
     int dequeue()
     {
         if (front == -1)
         {
-            cout << "underflow" << endl;
+            cout << "Underflow" << endl;
             return -1;
         }
+
         int ans = arr[front];
-        // arr[front] = -1;
 
         if (front == rear)
-            front = rear = -1 % size;
-
-        else if (front == size - 1)
-            front = 0;
+            front = rear = -1;
 
         else
             front++;
@@ -57,38 +50,25 @@ public:
 
     void display()
     {
-        if (rear == front)
+        if (rear == -1)
             return;
-        cout << "Data inside Queue : ";
+
         for (int i = front; i <= rear; i++)
         {
             cout << arr[i] << " ";
         }
-        cout << endl;
     }
 };
 
 int main()
 {
-    Queue q1(3);
-    q1.enqueue(10);
-    q1.enqueue(20);
-    q1.enqueue(30);
-    // cout << q1.dequeue() << endl;
-    // cout << q1.dequeue() << endl;
-    cout << q1.dequeue() << endl;
-    // q1.enqueue(60);
-
-    q1.display();
+    q n(2);
+    n.enqueue(5);
+    n.enqueue(2);
+    n.enqueue(5);
+    // cout << n.dequeue();
+    // cout << n.dequeue();
+    n.display();
 
     return 0;
 }
-
-/*
-
-output :
-
-10
-Data inside Queue : 20 30
-
-*/

@@ -44,14 +44,17 @@ void print(Node *&head)
     cout << endl;
 }
 
-int search(int key, Node *head)
+int search(int key, Node *&head)
 {
     Node *temp = head;
+
     int cnt = 0;
+
     while (temp->data != key)
     {
         if (temp->next == NULL)
             return -1;
+
         temp = temp->next;
         cnt++;
     }
@@ -68,6 +71,8 @@ int main()
     insert(head);
     insert(head);
 
+    cout << "Elements is list : ";
+    print(head);
     int key;
 
     cout << "Enter number to find in list : ";
